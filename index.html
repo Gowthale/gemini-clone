@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gemini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<header>
+    <select class="model-selector" id="modelSelect">
+        <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
+        <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash Lite</option>
+        <option value="gemini-2.5-pro">Gemini Advanced (2.5 Pro)</option>
+    </select>
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: #4285f4; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px;">U</div>
+</header>
+
+<main id="chat-container"></main>
+
+<div class="input-wrapper">
+    <div class="features-bar">
+        <button class="feature-pill" onclick="this.classList.toggle('active')">🔍 Deep Research</button>
+        <select class="feature-pill" style="appearance: none; outline: none; padding-right: 20px;">
+            <option>🧠 Normal Thinking</option>
+            <option>🧠 Extended Thinking</option>
+        </select>
+        <button class="feature-pill" onclick="this.classList.toggle('active')">🎨 Canva Mode</button>
+    </div>
+
+    <div class="input-box">
+        <input type="text" id="userInput" autocomplete="off" placeholder="Ask Gemini...">
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20v-6l8-2-8-2V4l19 8z"/></svg>
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+:root {
+    --bg-color: #131314;
+    --surface-color: #1e1f20;
+    --text-primary: #e3e3e3;
+    --text-secondary: #c4c7c5;
+    --accent-blue: #a8c7fa;
+    --border-color: #444746;
+    --code-bg: #1e1f20;
+    --code-header: #2d2f31;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Google Sans', Arial, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-primary); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+header { padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; font-size: 20px; color: var(--text-secondary); }
+.model-selector { background: transparent; color: var(--text-secondary); border: none; font-size: 18px; font-weight: 500; cursor: pointer; outline: none; }
+.model-selector option { background: var(--surface-color); color: var(--text-primary); }
+
+#chat-container { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; scroll-behavior: smooth; }
+.message-wrapper { width: 100%; max-width: 800px; margin-bottom: 32px; display: flex; flex-direction: column; animation: fadeIn 0.4s ease forwards; }
+
+.user-msg { align-self: flex-end; background: var(--surface-color); padding: 12px 20px; border-radius: 24px; max-width: 80%; font-size: 15px; line-height: 1.6; }
+
+.bot-msg-container { display: flex; gap: 16px; align-items: flex-start; width: 100%; }
+.gemini-avatar { width: 32px; height: 32px; flex-shrink: 0; background: linear-gradient(135deg, #4285f4, #9b72cb, #d96570); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.gemini-avatar svg { width: 20px; height: 20px; fill: white; }
+.bot-msg { font-size: 15px; line-height: 1.6; color: var(--text-primary); flex: 1; overflow-x: hidden; word-wrap: break-word; }
+
+.code-container { margin: 16px 0; background: var(--code-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
+.code-header { background: var(--code-header); padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+.copy-btn { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 12px; transition: color 0.2s; }
+.copy-btn:hover { color: var(--text-primary); }
+pre { padding: 16px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1.5; }
+
+.input-wrapper { width: 100%; max-width: 850px; margin: 0 auto; padding: 0 20px 30px 20px; display: flex; flex-direction: column; gap: 12px; }
+.features-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+.feature-pill { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 16px; padding: 6px 14px; font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; cursor: pointer; transition: background 0.2s; }
+.feature-pill:hover, .feature-pill.active { background: #333537; color: var(--text-primary); }
+.feature-pill.active { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+.input-box { background: var(--surface-color); border-radius: 32px; padding: 14px 24px; display: flex; align-items: center; gap: 12px; }
+.input-box input { flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 16px; outline: none; }
+.input-box input::placeholder { color: var(--text-secondary); }
+.send-btn { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.send-btn:hover { color: var(--text-primary); }
+
+.thinking-box { background: var(--surface-color); border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; color: var(--accent-blue); font-size: 14px; margin-bottom: 16px; max-width: fit-content; }
+.spinner { width: 16px; height: 16px; border: 2px solid var(--accent-blue); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
