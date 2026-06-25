@@ -1,4 +1,15 @@
-const API_KEY = "AQ.Ab8RN6JOHijl6T9N_Erd4BSl2dXdWn7WGW_TR4YPUQ9ObmzyVg"; 
+// 1. Check if the browser already saved your key
+let API_KEY = localStorage.getItem("gemini_api_key");
+
+// 2. If no key is saved, open a popup to ask for it
+if (!API_KEY) {
+    API_KEY = prompt("Please enter your Gemini API Key:");
+    if (API_KEY) {
+        localStorage.setItem("gemini_api_key", API_KEY);
+    } else {
+        alert("You need to enter an API key for the chat to work!");
+    }
+}
 
 document.getElementById("userInput").addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
